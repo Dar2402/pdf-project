@@ -44,9 +44,13 @@
         background: #218838;
       }
       .messages {
+        position: relative;
         margin-bottom: 15px;
         padding: 10px;
         border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
       .success {
         background-color: #d4edda;
@@ -58,19 +62,30 @@
         color: #721c24;
         border: 1px solid #f5c6cb;
       }
+      .close-btn {
+        background: none;
+        border: none;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-left: 10px;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <h2>Fill the Form</h2>
 
-      {% if messages %} {% for message in messages %}
-      <div
-        class="messages {% if message.tags == 'success' %}success{% else %}error{% endif %}"
-      >
-        {{ message }}
-      </div>
-      {% endfor %} {% endif %}
+      {% if messages %}
+        <div id="message-container">
+          {% for message in messages %}
+          <div class="messages {% if message.tags == 'success' %}success{% else %}error{% endif %}">
+            <span>{{ message }}</span>
+            <button class="close-btn" onclick="this.parentElement.style.display='none'">&times;</button>
+          </div>
+          {% endfor %}
+        </div>
+      {% endif %}
 
       <form method="post" id="pdf-form">
         {% csrf_token %}
@@ -94,7 +109,7 @@
           {{ form.state.label_tag }} {{ form.state }} {{ form.state.errors }}
         </div>
         <div class="form-group">
-          {{ form.country.label_tag }} {{ form.country }} {{ form.country.error }}
+          {{ form.country.label_tag }} {{ form.country }} {{ form.country.errors }}
         </div>
         <div class="form-group">
           {{ form.zip_code.label_tag }} {{ form.zip_code }} {{ form.zip_code.errors }}
@@ -110,15 +125,28 @@
     </div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById("pdf-form");
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("pdf-form");
 
-        form.addEventListener("submit", function (event) {
-          setTimeout(() => {
-            form.reset();
-          }, 1000);
-        });
+    form.addEventListener("submit", function (event) {
+      setTimeout(() => {
+        form.reset();
+      }, 1000);
+
+      // Allow time for the download, then refresh to show messages
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000); // Adjust timing if needed
+    });
+
+    // Hide messages after 5 seconds
+    setTimeout(() => {
+      document.querySelectorAll(".messages").forEach((message) => {
+        message.style.display = "none";
       });
-    </script>
+    }, 5000);
+  });
+</script>
+
   </body>
 </html>

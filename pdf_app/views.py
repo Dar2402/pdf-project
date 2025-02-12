@@ -25,6 +25,6 @@ def form_view(request):
     return render(request, "pdf_app/form_template.html", {"form": form})
 
 """
-scp -i your-key.pem -r D:\AE\pdf_project ubuntu@13.233.163.101:/home/ubuntu/
+scp -i your-key.pem -r D:\AE\pdf_project ubuntu@your-ec2-public-ip:/home/ubuntu/
 
 """
