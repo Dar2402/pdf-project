@@ -75,7 +75,8 @@
       <form method="post" id="pdf-form">
         {% csrf_token %}
         <div class="form-group">
-          {{ form.name.label_tag }} {{ form.name }} {{ form.name.errors }}
+          {{ form.name.label_tag }} {{ form.name }} 
+          {{ form.name.errors }}
         </div>
         <div class="form-group">
           {{ form.email.label_tag }} {{ form.email }} {{ form.email.errors }}
@@ -84,8 +85,7 @@
           {{ form.phone.label_tag }} {{ form.phone }} {{ form.phone.errors }}
         </div>
         <div class="form-group">
-          {{ form.address.label_tag }} {{ form.address }} {{ form.address.errors
-          }}
+          {{ form.address.label_tag }} {{ form.address }} {{ form.address.errors }}
         </div>
         <div class="form-group">
           {{ form.city.label_tag }} {{ form.city }} {{ form.city.errors }}
@@ -94,20 +94,16 @@
           {{ form.state.label_tag }} {{ form.state }} {{ form.state.errors }}
         </div>
         <div class="form-group">
-          {{ form.country.label_tag }} {{ form.country }} {{ form.country.errors
-          }}
+          {{ form.country.label_tag }} {{ form.country }} {{ form.country.error }}
         </div>
         <div class="form-group">
-          {{ form.zip_code.label_tag }} {{ form.zip_code }} {{
-          form.zip_code.errors }}
+          {{ form.zip_code.label_tag }} {{ form.zip_code }} {{ form.zip_code.errors }}
         </div>
         <div class="form-group">
-          {{ form.description.label_tag }} {{ form.description }} {{
-          form.description.errors }}
+          {{ form.description.label_tag }} {{ form.description }} {{ form.description.errors }}
         </div>
         <div class="form-group">
-          {{ form.additional_info.label_tag }} {{ form.additional_info }} {{
-          form.additional_info.errors }}
+          {{ form.additional_info.label_tag }} {{ form.additional_info }} {{ form.additional_info.errors }}
         </div>
         <button type="submit">Generate PDF</button>
       </form>
