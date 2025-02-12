@@ -87,10 +87,11 @@ DATABASES = {
         'NAME': 'django_db_o0n7',
         'USER': 'root',
         'PASSWORD': 'ODKHZQAzGG1s4xnVRRSyp1ha1hAARzkg',
-        'HOST': 'dpg-cumbdk0gph6c73dektd0-a',
-        'PORT': '5432',
+        'HOST': 'dpg-cumbdk0gph6c73dektd0-a.oregon-postgres.render.com',  # Complete host
+        'PORT': '5432',  # Default PostgreSQL port
     }
 }
+
 
 
 
