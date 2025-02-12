@@ -84,11 +84,11 @@ WSGI_APPLICATION = "pdf_project.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Dar2402$christmas_hub',
-        'USER': 'Dar2402',
-        'PASSWORD': 'PythonAnywhere',
-        'HOST': 'Dar2402.mysql.pythonanywhere-services.com',
-        'PORT': '3306',
+        'NAME': 'django_db_o0n7',
+        'USER': 'root',
+        'PASSWORD': 'ODKHZQAzGG1s4xnVRRSyp1ha1hAARzkg',
+        'HOST': 'dpg-cumbdk0gph6c73dektd0-a',
+        'PORT': '5432',
     }
 }
 
